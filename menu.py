@@ -10,11 +10,11 @@ menu = Flask(__name__)
 
 def menu_(spot1,sss):
     path = '/home/ubuntu/Downloads/chromedriver'
-    options = webdriver.ChromeOptions(path)
+    options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(path,options=options)
     
     driver.implicitly_wait(10)
     driver.get('https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/frame_view.jsp')
