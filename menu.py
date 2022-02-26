@@ -9,8 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait as wait
 menu = Flask(__name__)
 
 def menu_(spot1,sss):
-    
-    options = webdriver.ChromeOptions()
+    path = '/home/ubuntu/Downloads/chromedriver'
+    options = webdriver.ChromeOptions(path)
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
