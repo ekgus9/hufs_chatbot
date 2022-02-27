@@ -62,7 +62,7 @@ def inmunmenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('inmun',3)
+                    "text": menu_('inmun',1)
                 }
             }
         ]
@@ -78,7 +78,7 @@ def skymenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('sky',1)
+                    "text": menu_('inmun',5)
                 }
             }
         ]
