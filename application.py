@@ -62,7 +62,7 @@ def inmunmenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('inmun',5)
+                    "text": menu_('inmun',3)
                 }
             }
         ]
