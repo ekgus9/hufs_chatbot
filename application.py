@@ -56,7 +56,7 @@ def schedule():
     
 @application.route("/inmunmenu",methods=['POST'])
 def inmunmenu():
-    in = menu_('inmun',5)
+    inmun = menu_('inmun',5)
     
     res = {
     "version": "2.0",
@@ -64,7 +64,7 @@ def inmunmenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": in
+                    "text": inmun
                 }
             }
         ]
