@@ -56,13 +56,15 @@ def schedule():
     
 @application.route("/inmunmenu",methods=['POST'])
 def inmunmenu():
+    in = menu_('inmun',5)
+    
     res = {
     "version": "2.0",
     "template": {
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('inmun',5)
+                    "text": in
                 }
             }
         ]
@@ -195,7 +197,24 @@ def todayweather():
         "outputs": [
             {
                 "simpleText": {
-                    "text": todayWeather()
+                    "text": todayWeather('s')
+                }
+            }
+        ]
+    }
+}
+    return jsonify(res)
+
+@application.route("/todayMweather",methods=['POST'])
+def todayMweather():
+    
+    res = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": todayWeather('m')
                 }
             }
         ]
@@ -212,7 +231,24 @@ def nextweather():
         "outputs": [
             {
                 "simpleText": {
-                    "text": nextWeather()
+                    "text": nextWeather('s')
+                }
+            }
+        ]
+    }
+}
+    return jsonify(res)
+
+@application.route("/nextMweather",methods=['POST'])
+def nextMweather():
+    
+    res = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": nextWeather('m')
                 }
             }
         ]
