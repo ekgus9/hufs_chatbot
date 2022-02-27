@@ -22,6 +22,7 @@ def todayWeather(where):
         
         if '구름많음' == weather_text[2] or '흐림' == weather_text[2]: weather_text.append('☁️')
         elif '맑음' == weather_text[2]: weather_text.append('🌞')
+        elif '흐리고 가끔 비' == weather_text[2]: weather_text.append('🌦️')
         
         res = '''이문동 오늘 날씨{}\n
 현재 온도 {}
