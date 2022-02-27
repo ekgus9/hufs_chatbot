@@ -16,7 +16,7 @@ def menu_(spot1,sss):
     options.add_argument("--no-sandbox")
     driver = webdriver.Chrome(path,options=options)
     
-    driver.implicitly_wait(10)
+    driver.implicitly_wait(2)
     driver.get('https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/frame_view.jsp')
     driver.switch_to.frame('weekiframe') # menuiframe
     date = datetime.datetime.today().weekday() # 월0123456
