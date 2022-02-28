@@ -27,7 +27,7 @@ def sss():
     
     text = ''
     
-    for spot2 in range(1,6):
+    for spot2 in range(1,2):
 
         spot2_xpath = '/html/body/form/table/tbody/tr[{}]/td[1]'.format(1+spot2)
         text += '- ' + driver.find_element_by_xpath(spot2_xpath).text + '\n'
