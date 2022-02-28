@@ -65,7 +65,7 @@ def ss():
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
     options.add_argument("--headless")
     options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome('/home/ubuntu/Downloads/chromedriver'),options=options)
+    driver = webdriver.Chrome('/home/ubuntu/Downloads/chromedriver',options=options)
     
     driver.implicitly_wait(5)
     driver.get('https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/frame_view.jsp')
