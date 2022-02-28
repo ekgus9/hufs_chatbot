@@ -7,6 +7,10 @@ from menu import menu_
 from notice import notice_5
 from real_test import sss
 from weather import todayWeather, nextWeather
+
+from selenium import webdriver
+import datetime
+
 application = Flask(__name__)
 
 @application.route("/schedule",methods=['POST'])
