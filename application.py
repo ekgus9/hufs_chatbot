@@ -75,7 +75,7 @@ def ss():
     spot1 = 4
     
     spot_xpath = '//*[@id="form1"]/table/tbody/tr[{}]'.format(spot1)
-    driver.find_element(By.XPATH(spot_xpath)).click() # 식당 선택
+    driver.findElement(By.XPATH(spot_xpath)).click() # 식당 선택
     
     driver.switch_to.parent_frame() # 다시 부모 프레임으로 전환
     driver.switch_to.frame('menuiframe')
