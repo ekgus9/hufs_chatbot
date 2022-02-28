@@ -1,8 +1,7 @@
-from flask import Flask, jsonify
 from bs4 import BeautifulSoup
 import requests
+import re
 
-#@app.route("/weather")
 def todayWeather(where):
     
     seoul_url = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EC%9D%B4%EB%AC%B8%EB%8F%99+%EB%82%A0%EC%94%A8'
@@ -17,14 +16,23 @@ def todayWeather(where):
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
         
-        title = soup.select_one('#main_pack > section.sc_new.cs_weather_new._cs_weather > div._tab_flicking > div.content_wrap > div.open > div:nth-child(1) > div > div.weather_info > div')
-        weather_text = title.text.split()
+        title = soup.select_one('#main_pack > section.sc_new.cs_weather_new._cs_weather > div._tab_flicking > div.content_wrap > div.open > div:nth-child(1) > div > div.weather_info > div').text
+        
+        if '흐리고 비' in title:
+            com = re.compile('흐리고 비')
+            title = com.sub('흐리고비',title)
+        elif '흐리고 가끔 비' in title:
+            com = re.compile('흐리고 가끔 비')
+            title = com.sub('흐리고가끔비',title)
+        
+        weather_text = title.split()
         
         if '구름많음' == weather_text[2] or '흐림' == weather_text[2]: weather_text.append('☁️')
         elif '맑음' == weather_text[2]: weather_text.append('🌞')
-        elif '흐리고 가끔 비' == weather_text[2]: weather_text.append('🌦️')
+        elif '흐리고가끔비' == weather_text[2]: weather_text.append('🌦️')
+        elif '흐리고비' == weather_text[2]: weather_text.append('🌧️')
         
-        res = '''이문동 오늘 날씨{}\n
+        res = '''오늘 날씨{}\n
 현재 온도 {}
 {}\n
 강수확률 {}
@@ -36,7 +44,6 @@ def todayWeather(where):
         
     return res
 
-#@app.route("/nextweather")
 def nextWeather(where):
     
     seoul_url = 'https://search.naver.com/search.naver?where=nexearch&sm=top_hty&fbm=1&ie=utf8&query=%EB%82%B4%EC%9D%BC+%EC%9D%B4%EB%AC%B8%EB%8F%99+%EB%82%A0%EC%94%A8'
@@ -51,10 +58,18 @@ def nextWeather(where):
         html = response.text
         soup = BeautifulSoup(html, 'html.parser')
         
-        title = soup.select_one('#main_pack > section.sc_new.cs_weather_new._cs_weather > div._tab_flicking > div.content_wrap > div.open > div:nth-child(1) > div > div.weather_info.type_tomorrow > div > ul')
-        weather_text = title.text.split()
+        title = soup.select_one('#main_pack > section.sc_new.cs_weather_new._cs_weather > div._tab_flicking > div.content_wrap > div.open > div:nth-child(1) > div > div.weather_info.type_tomorrow > div > ul').text
         
-        res = '''이문동 내일 날씨\n
+        if '흐리고 비' in title:
+            com = re.compile('흐리고 비')
+            title = com.sub('흐리고비',title)
+        elif '흐리고 가끔 비' in title:
+            com = re.compile('흐리고 가끔 비')
+            title = com.sub('흐리고가끔비',title)
+        
+        weather_text = title.split()
+        
+        res = '''내일 날씨\n
 -오전-
 온도 {}
 {}
