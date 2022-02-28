@@ -3,7 +3,7 @@ import sys
 import requests
 import re
 from bs4 import BeautifulSoup
-from menu import menu_
+from menu import menu_, inmun
 from notice import notice_5
 from weather import todayWeather, nextWeather
 application = Flask(__name__)
@@ -62,7 +62,7 @@ def inmunmenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('inmun',1)
+                    "text": inmun('inmun',5)
                 }
             }
         ]
@@ -78,7 +78,7 @@ def skymenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('inmun',5)
+                    "text": menu_('sky',1)
                 }
             }
         ]
