@@ -3,8 +3,9 @@ import sys
 import requests
 import re
 from bs4 import BeautifulSoup
-from menu import menu_, inmun
+from menu import menu_
 from notice import notice_5
+from real_test import sss
 from weather import todayWeather, nextWeather
 application = Flask(__name__)
 
@@ -54,6 +55,61 @@ def schedule():
         
         return jsonify(res)
     
+@application.route("/ss", methods=['POST'])
+def ss():
+    res = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": sss()
+                }
+            }
+        ]
+    }
+}
+    return jsonify(res)
+
+@application.route("/tt", methods=['POST'])
+def tt():
+    res = {
+    "version": "2.0",
+    "template": {
+        "outputs": [
+            {
+                "simpleText": {
+                    "text": '''- 조식
+김밥/라면/토스트
+8시30분부터
+배식합니다.
+- 중식(1)
+뚝배기순두부
+어묵볶음
+콩나물무침
+김치
+- 중식(2)
+돈불고기덮밥
+시금치국
+콩나물무침
+김치
+- 중식(면)
+당분간
+면코너는 쉽니다.
+스낵코너는
+정상운영합니다.
+- 석식
+김치볶음밥
+두부장국
+계란후라이
+메시드포테이토'''
+                }
+            }
+        ]
+    }
+}
+    return jsonify(res)
+    
 @application.route("/inmunmenu",methods=['POST'])
 def inmunmenu():
     res = {
@@ -62,7 +118,7 @@ def inmunmenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": inmun('inmun',5)
+                    "text": menu_('inmun',5)
                 }
             }
         ]
