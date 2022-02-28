@@ -6,7 +6,6 @@ import datetime
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait as wait
-menu = Flask(__name__)
 
 def menu_(spot1,sss):
     path = '/home/ubuntu/Downloads/chromedriver'
