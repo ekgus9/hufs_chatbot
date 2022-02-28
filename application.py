@@ -3,7 +3,7 @@ import sys
 import requests
 import re
 from bs4 import BeautifulSoup
-from menu import menu_
+from menu import menu_, inmun
 from notice import notice_5
 from real_test import sss
 from weather import todayWeather, nextWeather
@@ -59,55 +59,6 @@ def schedule():
         
         return jsonify(res)
     
-@application.route("/ss",methods=['POST'])
-def ss():
-    options = webdriver.ChromeOptions()
-    options.add_experimental_option("excludeSwitches", ["enable-logging"])
-    options.add_argument("--headless")
-    options.add_argument("--no-sandbox")
-    driver = webdriver.Chrome('/home/ubuntu/Downloads/chromedriver',options=options)
-    
-    driver.implicitly_wait(3)
-    driver.get('https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/frame_view.jsp')
-    driver.switch_to.frame('weekiframe') # menuiframe
-    date = datetime.datetime.today().weekday() # 월0123456
-    
-    spot1 = 4
-    
-    spot_xpath = '//*[@id="form1"]/table/tbody/tr[{}]'.format(spot1)
-    driver.findElement(By.XPATH(spot_xpath)).click() # 식당 선택
-    
-    driver.switch_to.parent_frame() # 다시 부모 프레임으로 전환
-    driver.switch_to.frame('menuiframe')
-    
-    req = driver.page_source
-    soup=BeautifulSoup(req, 'html.parser')
-    title = soup.select_one('body > form > table > tbody')
-    text = ''
-    
-    for spot2 in range(1,6):
-
-        text += '- ' + soup.select_one('tr:nth-child({}) > td.headerStyle'.format(1+spot2)).text+ '\n'
-
-        if date == 6 and spot1 != 'do': text += "등록된 메뉴가\n없습니다.\n"
-        else:
-            spot2_xpath = '/html/body/form/table/tbody/tr[{}]/td[{}]/table'.format(1+spot2,2+date)
-            text += soup.select_one('tr:nth-child({}) > td:nth-child({})'.format(1+spot2,2+date)).text + '\n'
-
-    res = {
-    "version": "2.0",
-    "template": {
-        "outputs": [
-            {
-                "simpleText": {
-                    "text": text
-                }
-            }
-        ]
-    }
-}
-    return jsonify(res)
-    
 @application.route("/inmunmenu",methods=['POST'])
 def inmunmenu():
     res = {
@@ -116,8 +67,7 @@ def inmunmenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('inmun',5)
-                }
+                    "text": inmun()                }
             }
         ]
     }
@@ -180,7 +130,7 @@ def domenu():
         "outputs": [
             {
                 "simpleText": {
-                    "text": menu_('do',4)
+                    "text": menu_('do',3)
                 }
             }
         ]
