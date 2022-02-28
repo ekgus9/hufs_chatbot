@@ -67,7 +67,7 @@ def ss():
     options.add_argument("--no-sandbox")
     driver = webdriver.Chrome('/home/ubuntu/Downloads/chromedriver',options=options)
     
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(3)
     driver.get('https://wis.hufs.ac.kr/jsp/HUFS/cafeteria/frame_view.jsp')
     driver.switch_to.frame('weekiframe') # menuiframe
     date = datetime.datetime.today().weekday() # 월0123456
@@ -80,19 +80,19 @@ def ss():
     driver.switch_to.parent_frame() # 다시 부모 프레임으로 전환
     driver.switch_to.frame('menuiframe')
     
-    if driver.find_element_by_xpath('/html/body/form').text == "등록된 메뉴가 없습니다.": return "등록된 메뉴가\n없습니다."
-    
+    req = driver.page_source
+    soup=BeautifulSoup(req, 'html.parser')
+    title = soup.select_one('body > form > table > tbody')
     text = ''
     
     for spot2 in range(1,6):
 
-        spot2_xpath = '/html/body/form/table/tbody/tr[{}]/td[1]'.format(1+spot2)
-        text += '- ' + driver.find_element_by_xpath(spot2_xpath).text + '\n'
+        text += '- ' + soup.select_one('tr:nth-child({}) > td.headerStyle'.format(1+spot2)).text+ '\n'
 
         if date == 6 and spot1 != 'do': text += "등록된 메뉴가\n없습니다.\n"
         else:
             spot2_xpath = '/html/body/form/table/tbody/tr[{}]/td[{}]/table'.format(1+spot2,2+date)
-            text += driver.find_element_by_xpath(spot2_xpath).text + '\n'
+            text += soup.select_one('tr:nth-child({}) > td:nth-child({})'.format(1+spot2,2+date)).text + '\n'
 
     res = {
     "version": "2.0",
@@ -100,7 +100,7 @@ def ss():
         "outputs": [
             {
                 "simpleText": {
-                    "text": '인문관식당'
+                    "text": text
                 }
             }
         ]
