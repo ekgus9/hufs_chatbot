@@ -100,7 +100,7 @@ def ss():
         "outputs": [
             {
                 "simpleText": {
-                    "text": '인문관식당\' + text
+                    "text": '인문관식당\n' + text
                 }
             }
         ]
