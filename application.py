@@ -59,7 +59,7 @@ def schedule():
         
         return jsonify(res)
     
-@application.route("/ss")
+@application.route("/ss",methods=['POST'])
 def ss():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("excludeSwitches", ["enable-logging"])
@@ -100,7 +100,7 @@ def ss():
         "outputs": [
             {
                 "simpleText": {
-                    "text": text
+                    "text": '인문관식당\' + text
                 }
             }
         ]
