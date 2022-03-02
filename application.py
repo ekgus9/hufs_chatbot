@@ -5,7 +5,6 @@ import re
 from bs4 import BeautifulSoup
 from menu import menu_, inmun
 from notice import notice_5
-from real_test import sss
 from weather import todayWeather, nextWeather
 
 from selenium import webdriver
