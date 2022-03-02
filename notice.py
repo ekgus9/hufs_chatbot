@@ -29,7 +29,7 @@ def notice_5():
             com = re.compile('boardSeq=([0-9]+)')
             number.append(com.findall(title[i]['href'])) # 링크만 추출
             tet.append(title[i].text.strip())
-        print("https://www.hufs.ac.kr/user/indexSub.action?codyMenuSeq=37079&siteId=hufs&menuType=T&uId=4&sortChar=AB&linkUrl=04_0201.html&mainFrame=right&dum=dum&boardId=41661&page=1&command=view&boardSeq=" + number[0][0])
+        
         res = {
   "version": "2.0",
   "template": {
