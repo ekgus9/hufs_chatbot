@@ -1,4 +1,4 @@
-<img src="./captures/프로필.png" width="60%" height="60%" />
+<img src="./captures/프로필.png" width="40%" height="40%" />
 
 
 
@@ -34,8 +34,44 @@ Python, Flask, Kakao I Open Builder, AWS Ec2, BeautifulSoup, Selenium
 
 
 
-## 작동 사진
+## 기능 사진
+
+
+
+1. 인사말 및 메뉴 
 
 
 
 <img src="./captures/ㅂ.png" width="60%" height="60%" />
+
+
+
+2. 학사일정, 공지사항
+
+
+
+<img src="./captures/학사공지.png" width="60%" height="60%" />
+
+
+
+3. 학식
+
+
+
+<img src="./captures/학식.png" width="60%" height="60%" />
+
+
+
+4. 날씨 (초성으로 입력해도 인식)
+
+
+
+<img src="./captures/ㄴㅆ.png" width="60%" height="60%" />
+
+
+
+5. 도서관
+
+
+
+<img src="./captures/도서관.png" width="60%" height="60%" />
