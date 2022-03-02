@@ -24,13 +24,26 @@ def todayWeather(where):
         elif '흐리고 가끔 비' in title:
             com = re.compile('흐리고 가끔 비')
             title = com.sub('흐리고가끔비',title)
+        elif '흐리고 비/눈' in title:
+            com = re.compile('흐리고 비/눈')
+            title = com.sub('흐리고비/눈',title)
+        elif '흐리고 눈' in title:
+            com = re.compile('흐리고 눈')
+            title = com.sub('흐리고눈',title)
+        elif '구름많고 한때 비' in title:
+            com = re.compile('구름많고 한때 비')
+            title = com.sub('구름많고한때비',title)
         
         weather_text = title.split()
         
         if '구름많음' == weather_text[2] or '흐림' == weather_text[2]: weather_text.append('☁️')
         elif '맑음' == weather_text[2]: weather_text.append('🌞')
-        elif '흐리고가끔비' == weather_text[2]: weather_text.append('🌦️')
+        elif '흐리고가끔비' == weather_text[2] or '구름많고한때비' == weather_text[2]: weather_text.append('🌦️')
+        elif '비' == weather_text[2]: weather_text.append('☂️')
         elif '흐리고비' == weather_text[2]: weather_text.append('🌧️')
+        elif '흐리고눈' == weather_text[2]: weather_text.append('🌨️')
+        elif '눈' == weather_text[2]: weather_text.append('❄️')
+        elif '흐리고비/눈' == weather_text[2]: weather_text.append('🌧️🌨️')
         
         res = '''오늘 날씨{}\n
 현재 온도 {}
@@ -66,6 +79,15 @@ def nextWeather(where):
         elif '흐리고 가끔 비' in title:
             com = re.compile('흐리고 가끔 비')
             title = com.sub('흐리고가끔비',title)
+        elif '흐리고 비/눈' in title:
+            com = re.compile('흐리고 비/눈')
+            title = com.sub('흐리고비/눈',title)
+        elif '흐리고 눈' in title:
+            com = re.compile('흐리고 눈')
+            title = com.sub('흐리고눈',title)
+        elif '구름많고 한때 비' in title:
+            com = re.compile('구름많고 한때 비')
+            title = com.sub('구름많고한때비',title)
         
         weather_text = title.split()
         
