@@ -1,4 +1,4 @@
-<img src="./captures/프로필.png" width="40%" height="40%" />
+<img src="./captures/프로필.png" width="20%" height="20%" />
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-학교를 다니면서 간단한 정보 조차도 검색하거나 앱을 찾아서 접근해야 한다는 사실에 불편함을 느꼈다. 따라서 학교에 대한 정보를 손쉽게 얻기 위해 이 카카오톡 챗봇을 만들었다. 
+학교에 다니면서 간단한 정보조차도 검색하거나 앱을 찾아서 접근해야 한다는 사실에 불편함을 느꼈다. 따라서 학교에 대한 정보를 손쉽게 얻기 위해 이 카카오톡 챗봇을 만들었다. 
 
 
 
@@ -22,7 +22,7 @@
 
 
 
-학사 일정 보기, 공지사항 보기, 캠퍼스 및 건물별 학식 보기, 캠퍼스별 날씨 보기, 캠퍼스별 캠퍼스 맵 사진, 강의실 대관 바로가기, 홈페이지 바로가기, e-class 바로가기, 종합정보시스템 바로가기, 캠퍼스별 도서관 바로가기, 캠퍼스별 수강편람 바로가기, 학생 통학버스 안내 보기, 강의 시간표 바로가기
+학사 일정 보기, 공지사항 보기, 캠퍼스 및 건물별 학식 보기, 캠퍼스별 날씨 보기, 캠퍼스별 캠퍼스 맵 사진, 강의실 대관 바로 가기, 홈페이지 바로 가기, e-class 바로 가기, 종합정보시스템 바로 가기, 캠퍼스별 도서관 바로 가기, 캠퍼스별 수강편람 바로 가기, 학생 통학버스 안내 보기, 강의 시간표 바로 가기
 
 
 
@@ -42,7 +42,7 @@ Python, Flask, Kakao I Open Builder, AWS Ec2, BeautifulSoup, Selenium
 
 
 
-<img src="./captures/ㅂ.png" width="60%" height="60%" />
+<img src="./captures/ㅂ.png" width="40%" height="40%" />
 
 
 
@@ -50,7 +50,7 @@ Python, Flask, Kakao I Open Builder, AWS Ec2, BeautifulSoup, Selenium
 
 
 
-<img src="./captures/학사공지.png" width="60%" height="60%" />
+<img src="./captures/학사공지.png" width="40%" height="40%" />
 
 
 
@@ -58,7 +58,7 @@ Python, Flask, Kakao I Open Builder, AWS Ec2, BeautifulSoup, Selenium
 
 
 
-<img src="./captures/학식.png" width="60%" height="60%" />
+<img src="./captures/학식.png" width="40%" height="40%" />
 
 
 
@@ -66,7 +66,7 @@ Python, Flask, Kakao I Open Builder, AWS Ec2, BeautifulSoup, Selenium
 
 
 
-<img src="./captures/ㄴㅆ.png" width="60%" height="60%" />
+<img src="./captures/ㄴㅆ.png" width="40%" height="40%" />
 
 
 
@@ -74,4 +74,4 @@ Python, Flask, Kakao I Open Builder, AWS Ec2, BeautifulSoup, Selenium
 
 
 
-<img src="./captures/도서관.png" width="60%" height="60%" />
+<img src="./captures/도서관.png" width="40%" height="40%" />
